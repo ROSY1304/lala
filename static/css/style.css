@@ -1,45 +1,65 @@
+/* General */
 body {
     font-family: Arial, sans-serif;
     background-color: #2739dc;
     margin: 0;
     padding: 0;
+    height: 100vh; /* Asegura que el body ocupe toda la altura de la pantalla */
+    display: flex;
+    flex-direction: column;
 }
 
+/* Contenedor principal */
 .container {
-    max-width: 900px;
-    margin: 500px auto;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ocupa toda la altura disponible */
+    width: 100%; /* Ocupa todo el ancho */
     background-color: rgb(207, 267, 236);
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    overflow-y: auto; /* Permite desplazarse si el contenido supera la altura */
 }
 
+/* Encabezado */
 h1 {
     text-align: center;
     color: #ffffff;
+    margin: 0 0 20px 0;
 }
 
+/* Lista de notebooks */
 ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
 ul li {
     background-color: #b5dfee;
     margin: 10px 0;
-    padding: 10px;
+    padding: 15px;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s;
+    text-align: center;
 }
 
 ul li:hover {
     background-color: #dcdcdc;
 }
 
+/* Contenido del notebook */
 #notebook-content {
+    flex: 1; /* Toma el espacio restante dentro de la pantalla */
+    display: flex;
+    flex-direction: column;
     margin-top: 20px;
-    padding-top: 10px;
-    border-top: 1px solid #ccc;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Permite el desplazamiento si el contenido es demasiado grande */
 }
 
 #content {
@@ -49,4 +69,26 @@ ul li:hover {
     padding: 20px;
     border-radius: 5px;
     font-family: "Courier New", monospace;
+    flex: 1; /* Ocupa el resto del espacio dentro del contenedor */
+    overflow-y: auto;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    ul li {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    #notebook-content {
+        padding: 10px;
+    }
+
+    #content {
+        padding: 10px;
+    }
 }
